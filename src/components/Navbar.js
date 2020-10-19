@@ -1,50 +1,78 @@
-import React, { useState } from "react"
-import { Link } from "react-router-dom"
-import { MdFingerprint } from "react-icons/md"
-import { FaBars, FaTimes } from "react-icons/fa"
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { MdFingerprint } from "react-icons/md";
+import { FaBars, FaTimes } from "react-icons/fa";
+import { Button } from "./Button";
+import "./Navbar.css";
 
 function Navbar() {
-    const [click, setClick] = useState(false)
-    
-    const handleClick = () => setClick(!click)
+  const [click, setClick] = useState(false);
+  const [button, setButton] = useState(true);
 
-    return (
-        <>
-            <div className="navbar">
-                <div className="navbar-container container">
-                    <Link to="/" className="navbar-logo">
-                        <MdFingerprint className="navbar-icon" />
-                        Portfolio
-                    </Link>
-                    <div className="menu-icon" onClick={handleClick}>
-                        {click ? <FaTimes /> : <FaBars />}
-                    </div>
-                    <ul className={click ? "nav-menu active" : "nav-menu"}>
-                        <li className="nav-item">
-                            <Link to="/" className="nav-links">
-                                Home
-                            </Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to="/about" className="nav-links">
-                                About
-                            </Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to="/projects" className="nav-links">
-                                Projects
-                            </Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to="/contact" className="nav-links">
-                                Contact
-                            </Link>
-                        </li>
-                    </ul>
-                </div>
-            </div>  
-        </>
-    )
+  const handleClick = () => setClick(!click);
+
+  const closeMobileMenu = () => setClick(false);
+
+  const showButton = () => {
+    if (window.innerWidth <= 960) {
+      setButton(false);
+    } else {
+      setButton(true);
+    }
+  };
+
+  window.addEventListener("resize", showButton);
+
+  return (
+    <>
+      <div className="navbar">
+        <div className="navbar-container container">
+          <Link to="/" className="navbar-logo">
+            <MdFingerprint className="navbar-icon" />
+            Portfolio
+          </Link>
+          <div className="menu-icon" onClick={handleClick}>
+            {click ? <FaTimes /> : <FaBars />}
+          </div>
+          <ul className={click ? "nav-menu active" : "nav-menu"}>
+            <li className="nav-item">
+              <Link to="/" className="nav-links">
+                Home
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/about" className="nav-links">
+                About
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/projects" className="nav-links">
+                Projects
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/contact" className="nav-links">
+                Contact
+              </Link>
+            </li>
+            <li className="nav-btn">
+              {button ? (
+                <Link to="/facebook" className="btn-link">
+                  <Button buttonStyle="btn--outline">Facebook</Button>
+                </Link>
+              ) : (
+                <Link to="/facebook" className="btn-link">
+                  <Button buttonStyle="btn--outline" buttonSize="btn--mobile">
+                    Facebook
+                  </Button>
+                </Link>
+              )}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </>
+  );
 }
 
-export default Navbar
+export default Navbar;
