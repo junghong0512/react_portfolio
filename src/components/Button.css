@@ -11,12 +11,12 @@
   white-space: nowrap;
 }
 
-.btn:hover {
-  color: #242424;
-}
-
 .btn svg {
   font-size: x-large;
+}
+
+.btn:hover svg {
+  fill: #242424;
 }
 
 .btn--primary {
