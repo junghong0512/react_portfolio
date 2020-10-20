@@ -3,12 +3,20 @@
 }
 
 .btn {
-  padding: 8px 20px;
+  width: 130px;
   border-radius: 4px;
   outline: none;
   border: none;
   cursor: pointer;
   white-space: nowrap;
+}
+
+.btn:hover {
+  color: #242424;
+}
+
+.btn svg {
+  font-size: x-large;
 }
 
 .btn--primary {
@@ -99,4 +107,14 @@
 
 .green:hover {
   background-color: #242424;
+}
+
+.btn-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  padding: 8px 16px;
+  height: 100%;
+  width: 100%;
 }

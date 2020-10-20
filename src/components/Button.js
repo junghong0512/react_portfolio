@@ -1,7 +1,7 @@
 import React from "react";
 import "./Button.css";
 
-const STYLES = ["btn--primary", "btn--outlined"];
+const STYLES = ["btn--primary", "btn--outline"];
 
 const SIZE = ["btn--medium", "btn--large", "btn--mobile", "btn--wide"];
 
@@ -21,7 +21,7 @@ export const Button = ({
 
   const checkButtonSize = SIZE.includes(buttonSize) ? buttonSize : SIZE[0];
 
-  const checkButtonColor = COLOR.includes(buttonColor) ? buttonColor : COLOR[0];
+  const checkButtonColor = COLOR.includes(buttonColor) ? buttonColor : null;
 
   return (
     <button
