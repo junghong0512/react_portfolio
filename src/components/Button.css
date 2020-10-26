@@ -13,9 +13,6 @@
 
 .btn svg {
   font-size: x-large;
-}
-
-.btn:hover svg {
   fill: #242424;
 }
 
